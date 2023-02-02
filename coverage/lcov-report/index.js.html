@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">4.76% </span>
+                <span class="strong">17.24% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>1/21</span>
+                <span class='fraction'>5/29</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/8</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>0/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">4.76% </span>
+                <span class="strong">17.24% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>1/21</span>
+                <span class='fraction'>5/29</span>
             </div>
         
             
@@ -93,8 +93,8 @@
 <a name='L28'></a><a href='#L28'>28</a>
 <a name='L29'></a><a href='#L29'>29</a>
 <a name='L30'></a><a href='#L30'>30</a>
-<a name='L31'></a><a href='#L31'>31</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L31'></a><a href='#L31'>31</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -114,42 +114,42 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import fs from 'fs'
 import _ from 'lodash'
-const genDiff = <span class="fstat-no" title="function not covered" >(f</span>ile1, file2) =&gt; {
-	const f1 = <span class="cstat-no" title="statement not covered" >fs.readFileSync(file1, 'utf-8')</span>
-	const f2 = <span class="cstat-no" title="statement not covered" >fs.readFileSync(file2, 'utf-8')</span>
-	const obj1 = <span class="cstat-no" title="statement not covered" >JSON.parse(f1);</span>
-	const obj2 = <span class="cstat-no" title="statement not covered" >JSON.parse(f2);</span>
-	const keys1 = <span class="cstat-no" title="statement not covered" >_.keys(obj1);</span>
-	const keys2 = <span class="cstat-no" title="statement not covered" >_.keys(obj2);</span>
-	const uniqKeys = <span class="cstat-no" title="statement not covered" >_.union(keys1, keys2);</span>
-	const sortedKeys = <span class="cstat-no" title="statement not covered" >_.sortBy(uniqKeys)</span>
-	const result = <span class="cstat-no" title="statement not covered" >sortedKeys.reduce(<span class="fstat-no" title="function not covered" >(a</span>cc, key) =&gt; {</span>
+const genDiff = <span class="fstat-no" title="function not covered" >(file1, file2) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >	const f1 = fs.readFileSync(file1, 'utf-8')</span>
+<span class="cstat-no" title="statement not covered" >	const f2 = fs.readFileSync(file2, 'utf-8')</span>
+<span class="cstat-no" title="statement not covered" >	const obj1 = JSON.parse(f1);</span>
+<span class="cstat-no" title="statement not covered" >	const obj2 = JSON.parse(f2);</span>
+<span class="cstat-no" title="statement not covered" >	const keys1 = _.keys(obj1);</span>
+<span class="cstat-no" title="statement not covered" >	const keys2 = _.keys(obj2);</span>
+<span class="cstat-no" title="statement not covered" >	const uniqKeys = _.union(keys1, keys2);</span>
+<span class="cstat-no" title="statement not covered" >	const sortedKeys = _.sortBy(uniqKeys)</span>
+<span class="cstat-no" title="statement not covered" >	const result = sortedKeys.reduce((acc, key) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >		if(!_.has(obj1, key)) {</span>
 <span class="cstat-no" title="statement not covered" >			acc.push(`+ ${key}: ${obj2[key]}\n`)</span>
-		}else <span class="cstat-no" title="statement not covered" >if(!_.has(obj2, key)) {</span>
+<span class="cstat-no" title="statement not covered" >		}else if(!_.has(obj2, key)) {</span>
 <span class="cstat-no" title="statement not covered" >			acc.push(`- ${key}: ${obj1[key]}\n`)</span>
-		}else <span class="cstat-no" title="statement not covered" >if(obj1[key] === obj2[key]) {</span>
+<span class="cstat-no" title="statement not covered" >		}else if(obj1[key] === obj2[key]) {</span>
 <span class="cstat-no" title="statement not covered" >			acc.push(`  ${key}: ${obj1[key]}\n`)</span>
-		}else <span class="cstat-no" title="statement not covered" >if(obj1[key] !== obj2[key]) {</span>
+<span class="cstat-no" title="statement not covered" >		}else if(obj1[key] !== obj2[key]) {</span>
 <span class="cstat-no" title="statement not covered" >			acc.push(`- ${key}: ${obj1[key]}\n`)</span>
 <span class="cstat-no" title="statement not covered" >			acc.push(`+ ${key}: ${obj2[key]}\n`)</span>
-		}
+<span class="cstat-no" title="statement not covered" >		}</span>
 <span class="cstat-no" title="statement not covered" >		return acc;</span>
-	}, [])
+<span class="cstat-no" title="statement not covered" >	}, [])</span>
 <span class="cstat-no" title="statement not covered" >	return `{\n${result.join('')}\n}`;</span>
-&nbsp;
-}
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >}</span>
 &nbsp;
 export default genDiff
 &nbsp;
@@ -160,7 +160,7 @@ export default genDiff
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-01-25T13:53:38.743Z
+                at 2023-01-26T02:33:16.036Z
             </div>
         <script src="prettify.js"></script>
         <script>

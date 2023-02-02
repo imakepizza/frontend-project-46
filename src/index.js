@@ -1,10 +1,10 @@
 import fs from 'fs'
 import _ from 'lodash'
-const genDiff = (file1, file2) => {
-	const f1 = fs.readFileSync(file1, 'utf-8')
-	const f2 = fs.readFileSync(file2, 'utf-8')
-	const obj1 = JSON.parse(f1);
-	const obj2 = JSON.parse(f2);
+const genDiff = (filepath1, filepath2) => {
+	// const f1 = fs.readFileSync(file1, 'utf-8')
+	// const f2 = fs.readFileSync(file2, 'utf-8')
+	const obj1 = JSON.parse(filepath1);
+	const obj2 = JSON.parse(filepath2);
 	const keys1 = _.keys(obj1);
 	const keys2 = _.keys(obj2);
 	const uniqKeys = _.union(keys1, keys2);
