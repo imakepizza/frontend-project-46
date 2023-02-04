@@ -1,6 +1,6 @@
-name: Node CI
+name: NodeCI
 
-# Trigger the workflow on push or pull request
+
 on:
   - push
   - pull_request
@@ -10,25 +10,17 @@ env:
 
 jobs:
   build:
-
-    # The type of machine to run the job on
+    
     runs-on: ubuntu-latest
 
     strategy:
-      # Node versions list
       matrix:
         node-version: [18.x]
 
     steps:
-        # Check-out repository under GitHub workspace
-        # https://github.com/actions/checkout
       - uses: actions/checkout@v3
-        # Step's name
       - name: Use Node.js ${{ matrix.node-version }}
-        # Configures the node version used on GitHub-hosted runners
-        # https://github.com/actions/setup-node
         uses: actions/setup-node@v3
-        # The Node.js version to configure
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
@@ -38,7 +30,7 @@ jobs:
       - name: Test & publish code coverage
         uses: paambaati/codeclimate-action@v3.2.0
         env:
-          CC_TEST_REPORTER_ID: <code_climate_reporter_id>
+          CC_TEST_REPORTER_ID: ${{ secrets.CODE_CLIMATE_TESTS_ID }}
         with:
-          coverageCommand: npm test -- --coverage --coverageProvider=v8
+          coverageCommand: make test-coverage
           debug: true

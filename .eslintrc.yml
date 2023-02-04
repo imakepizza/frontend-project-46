@@ -3,7 +3,7 @@ plugins:
 env:
   browser: true
   es2021: true
-  extends:
+extends:
   - 'airbnb-base'
   - 'plugin:jest/recommended'
 overrides: []
