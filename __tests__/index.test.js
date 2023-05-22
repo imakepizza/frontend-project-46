@@ -1,7 +1,5 @@
 import path from 'path';
-import { getParsedData, genDiff } from '../src/index.js';
-
-const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
+import { getParsedData, genDiff, getFixturePath } from '../src/index.js';
 
 const expectedStylish = getParsedData(getFixturePath('expectedStylish.txt'));
 const expectedPlain = getParsedData(getFixturePath('expectedPlain.txt'));
