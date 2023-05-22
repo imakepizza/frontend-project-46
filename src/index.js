@@ -45,3 +45,4 @@ const genDiff = (file1, file2, format = 'stylish') => {
   return formatTree(tree, format);
 };
 export { genDiff, getParsedData, getFixturePath };
+export default genDiff;
