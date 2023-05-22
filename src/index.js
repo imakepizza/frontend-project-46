@@ -2,7 +2,7 @@ import fs from 'fs';
 import _ from 'lodash';
 import { fileURLToPath } from 'url';
 import path from 'path';
-import parse from '../src/parsers.js';
+import parse from './parsers.js';
 import formatTree from './formatters/index.js';
 
 const __filename = fileURLToPath(import.meta.url);

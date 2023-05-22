@@ -1,6 +1,5 @@
 import genDiff from '../src/index.js';
-import { getParsedData } from '../src/index.js';
-import { getFixturePath } from '../src/index.js';
+import { getParsedData, getFixturePath } from '../src/index.js';
 
 const expectedStylish = getParsedData(getFixturePath('expectedStylish.txt'));
 const expectedPlain = getParsedData(getFixturePath('expectedPlain.txt'));
