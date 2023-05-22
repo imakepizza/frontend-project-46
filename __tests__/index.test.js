@@ -1,4 +1,3 @@
-import path from 'path';
 import { getParsedData, genDiff, getFixturePath } from '../src/index.js';
 
 const expectedStylish = getParsedData(getFixturePath('expectedStylish.txt'));
