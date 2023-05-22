@@ -30,8 +30,8 @@ return { type: 'unchanged', key: key, value: object1[key] }
   });
   return diff;
 };
-export const getParsedData = (filename) => {
-const path = getFixturePath(filename);
+export const getParsedData = (path) => {
+//const path = getFixturePath(filename);
 const extention = getExtentionName(path);
 const data = readFile(path)
 const parsedData = parse(data, extention);
