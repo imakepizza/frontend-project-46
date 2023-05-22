@@ -1,12 +1,13 @@
 import yaml from 'js-yaml';
 
-export default (data, extention) => {
-  switch (extention) {
-    case '.json':
-      return JSON.parse(data);
-    case '.yml':
-      return yaml.load(data);
-    default:
-      return extention;
-  }
-};
+const mapping = {
+  'json': (data) => JSON.parse(data),
+  'yml': (data) => yaml.load(data),
+  'yaml':(data) => yaml.load(data),
+  'txt': (data) => data,
+}
+
+const parse = (data, format) => {
+  return mapping[format](data);
+}
+export default parse;

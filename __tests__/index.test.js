@@ -1,31 +1,23 @@
 import genDiff from '../src/index.js';
-import path from 'path';
-import fs from 'fs';
-import { fileURLToPath } from 'url';
+import stylish from '../src/formatters/stylish.js';
+import plain from '../src/formatters/plain.js';
+import { getParsedData } from '../src/index.js';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
-// const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8');
-const jsonContent1 = getFixturePath('file1.json');
-const jsonContent2 = getFixturePath('file2.json');
-const ymlContent1 = getFixturePath('file1.yml');
-const ymlContent2 = getFixturePath('file2.yml');
-const expected = `{
-- follow: false
-  host: hexlet.io
-- proxy: 123.234.53.22
-- timeout: 50
-+ timeout: 20
-+ verbose: true
+const expectedStylish = getParsedData('expectedStylish.txt')
+const expectedPlain = getParsedData('expectedPlain.txt')
+const expectedJSON = getParsedData('expectedJSON.txt')
 
-}`;
-
-describe('genDiff', () => {
-  it('should work with json extention', () => {
-    expect(genDiff(jsonContent1, jsonContent2) === expected).toBe(true);
-  });
-  it('should work with yml extention', () => {
-    expect(genDiff(ymlContent1, ymlContent2) === expected).toBe(true);
-  });
+test.each(['.json', '.yml', '.yaml'])('Compare with passing format', (extention) => {
+  const file1 = `file1${extention}`;
+  const file2 = `file2${extention}`;
+  expect(genDiff(file1, file2 , 'stylish')).toEqual(expectedStylish);
+  expect(genDiff(file1, file2 , 'plain')).toEqual(expectedPlain);
+  expect(genDiff(file1, file2 , 'json')).toEqual(expectedJSON);
 });
+test('Compare without passing format', () => {
+   const file1 = `file1.json`;
+  const file2 = `file2.json`;
+  expect(genDiff(file1, file2)).toEqual(expectedStylish);
+});
+
+
