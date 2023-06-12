@@ -21,4 +21,16 @@ npm link
 
 [![asciicast](https://asciinema.org/a/HfuTSpXJz80GMDclzIRj3qh3F.svg)](https://asciinema.org/a/HfuTSpXJz80GMDclzIRj3qh3F).
 
+#### Default output
 
+[![asciicast](https://asciinema.org/a/ddhrcTBopzFF9MnegFhA8JDyS.svg)](https://asciinema.org/a/ddhrcTBopzFF9MnegFhA8JDyS).
+
+#### Output in chosen format 
+
+#### Plain
+
+[![asciicast](https://asciinema.org/a/WSNAzpuUo73NJ28n1PxGdtnV.svg)](https://asciinema.org/a/WSNAzpuUo73NJ28n1PxGdtnV).
+
+#### JSON
+https://asciinema.org/a/C8bSOyN95qSKIe078L1807Vbi
+[![asciicast](https://asciinema.org/a/C8bSOyN95qSKIe078L1807Vbi.svg)](https://asciinema.org/a/C8bSOyN95qSKIe078L1807Vbi).
