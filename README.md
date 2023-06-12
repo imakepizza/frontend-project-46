@@ -29,8 +29,8 @@ npm link
 
 #### Plain
 
-[![asciicast](https://asciinema.org/a/WSNAzpuUo73NJ28n1PxGdtnV.svg)](https://asciinema.org/a/WSNAzpuUo73NJ28n1PxGdtnV).
+[![asciicast](https://asciinema.org/a/WSNAzpuUo73NJ28n1PxGdtnVH.svg)](https://asciinema.org/a/WSNAzpuUo73NJ28n1PxGdtnVH).
 
 #### JSON
-https://asciinema.org/a/C8bSOyN95qSKIe078L1807Vbi
+
 [![asciicast](https://asciinema.org/a/C8bSOyN95qSKIe078L1807Vbi.svg)](https://asciinema.org/a/C8bSOyN95qSKIe078L1807Vbi).
