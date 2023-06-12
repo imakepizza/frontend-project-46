@@ -8,11 +8,11 @@ const stringify = (value) => {
 const plain = (tree) => {
   const iter = (node, path) => {
     const newNode = node.flatMap((n) => {
-      const [type, key, value] = [n.type, n.key, n.value];
+      const [type, key, value, children] = [n.type, n.key, n.value, n.children];
       const currentPath = path === '' ? `${key}` : `${path}.${key}`;
       switch (type) {
         case 'nested':
-          return iter(value, currentPath);
+          return iter(children, currentPath);
         case 'added':
           return `Property '${currentPath}' was added with value: ${stringify(value)}`;
         case 'deleted':

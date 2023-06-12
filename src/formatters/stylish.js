@@ -26,10 +26,10 @@ const stylish = (tree) => {
       const indent = depth * 4;
       const bracketIndent = ' '.repeat(indent);
       const keyIndent = ' '.repeat(indent - 2);
-      const [type, key, value] = [n.type, n.key, n.value];
+      const [type, key, value, children] = [n.type, n.key, n.value, n.children];
       switch (type) {
         case 'nested':
-          return `${keyIndent}${status[type]} ${key}: {\n${iter(value, depth + 1).join('\n')}\n${bracketIndent}}`;
+          return `${keyIndent}${status[type]} ${key}: {\n${iter(children, depth + 1).join('\n')}\n${bracketIndent}}`;
         case 'added':
           return `${keyIndent}${status[type]} ${key}: ${stringify(value, depth + 1)}`;
         case 'deleted':
