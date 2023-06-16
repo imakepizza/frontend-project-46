@@ -1,31 +1,11 @@
 import fs from 'fs';
-import _ from 'lodash';
 import path from 'path';
 import parse from './parsers.js';
 import formatTree from './formatters/index.js';
+import genTree from './genTree.js'
 
 const getExtentionName = (filepath) => path.extname(filepath).slice(1);
 const readFile = (filename) => fs.readFileSync(filename, 'utf-8');
-
-const genTree = (object1, object2) => {
-  const keys = _.sortBy(_.union(_.keys(object1), _.keys(object2)));
-  const diff = keys.map((key) => {
-    if (_.isObject(object1[key]) && _.isObject(object2[key])) {
-      return { type: 'nested', key, children: genTree(object1[key], object2[key]) };
-    }
-    if (!_.has(object2, key)) {
-      return { type: 'deleted', key, value: object1[key] };
-    }
-    if (!_.has(object1, key)) {
-      return { type: 'added', key, value: object2[key] };
-    }
-    if (object1[key] !== object2[key]) {
-      return { type: 'changed', key, value: [object1[key], object2[key]] };
-    }
-    return { type: 'unchanged', key, value: object1[key] };
-  });
-  return diff;
-};
 
 const getParsedData = (filepath) => {
   const extention = getExtentionName(filepath);
