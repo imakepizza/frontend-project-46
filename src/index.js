@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import parse from './parsers.js';
 import formatTree from './formatters/index.js';
-import genTree from './genTree.js'
+import genTree from './genTree.js';
 
 const getExtentionName = (filepath) => path.extname(filepath).slice(1);
 const readFile = (filename) => fs.readFileSync(filename, 'utf-8');
